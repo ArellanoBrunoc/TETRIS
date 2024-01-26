@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>TETRIS</title>
+</head>
+
+<body>
+    <div class="boardContainer">
+        <div class="InfoContainer">
+            <div style="margin-top: 0%;"> LEVEL</div>
+            <div class="score " style="margin-top: 0%;" id="level">1</div>
+            <div style="margin-top: 10%;"> LANES</div>
+            <div class="score " style="margin-top: 0%;" id="lanes">0</div>
+            <div style="margin-top: 10%;"> SCORE</div>
+                <div class="score " style="margin-top: 0%;" id="score">0</div>
+        </div>
+        <div class="tetrisContainer" id="tetrisContainer">
+            <div id="gameOverMessage"> <div style="display: inline;"><i style="color: #0D4261;">  TE</i>
+                <i style="color:  #2B7193;">TR</i><i style="color: #FBAF99;">IS</i> </div>   <i id="textOption">Developed by Bruno Arellano</i>
+            
+            <button id="ButtonJugar"> JUGAR</button>
+            
+            
+            </div>
+
+
+
+        </div>
+  
+    </div>  
+    <div>
+
+        <audio id="musicPlayer" controls  muted>
+            <source src= '/MUSIC/Gladiator - Now We Are Free (Piano Version) + Sheet Music.mp3'audio/mp3">
+
+       
+        
+        </audio>
+    </div>
+
+</body>
+
+<script src="tetris.js"></script>
+<script>
+    const musicPlayer = document.getElementById('musicPlayer');
+    
+    // Lista de canciones en bucle
+    const playlist = [ '/MUSIC/Gladiator - Now We Are Free (Piano Version) + Sheet Music.mp3','/MUSIC/Etude in E minor, Op. 25, No. 5 Wrong Note - Chopin (Shigatsu Wa Kimi No Uso)+Sheet.mp3', '/MUSIC/The Chronicles of Narnia - Main Theme (Piano Version).mp3'];
+    let currentIndex = 0;
+
+
+    musicPlayer.addEventListener('ended', () => {
+
+        currentIndex = (currentIndex + 1) % playlist.length;
+        musicPlayer.src = playlist[currentIndex];
+        musicPlayer.play();
+    });
+
+
+    musicPlayer.src = playlist[currentIndex];
+    musicPlayer.play();
+</script>
+</html>
